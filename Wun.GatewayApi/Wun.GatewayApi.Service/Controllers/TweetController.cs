@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR.Infrastructure;
+using Microsoft.Extensions.Options;
+using Wun.GatewayApi.Service.Configuration;
 using Wun.GatewayApi.Service.MessageBus;
 using Wun.GatewayApi.Service.MessageBus.MessageCommands;
 using Wun.GatewayApi.Service.MessageBus.Models;
@@ -10,12 +12,11 @@ namespace Wun.GatewayApi.Service.Controllers
     public class TweetController : Controller
     {
         private readonly IConnectionManager _connectionManager;
-        private const string RealTimeTweetsSubscription = "real-time-tweets";
 
-        public TweetController(IConnectionManager connectionManager, IMessageBus messageBus)
+        public TweetController(IConnectionManager connectionManager, IMessageBus messageBus, IOptions<AppSettings> appSettings)
         {
             _connectionManager = connectionManager;
-            messageBus.SubscribeAsync<TweetMessage>(RealTimeTweetsSubscription,
+            messageBus.SubscribeAsync<TweetMessage>(appSettings.Value.RealTimeTweetRedisChannel,
                 new PushTweetToTheUiCommand(_connectionManager.GetHubContext<RealTimeTweetsHub>()));
         }
 
