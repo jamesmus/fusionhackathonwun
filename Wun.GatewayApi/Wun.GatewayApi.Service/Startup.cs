@@ -34,6 +34,10 @@ namespace Wun.GatewayApi.Service
         {
             // Add framework services.
             services.AddMvc();
+            services.AddCors(options => options.AddPolicy("testPolicy", builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()));
 
             services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
             services.AddSingleton(provider => provider.GetService<IConnectionMultiplexer>().GetSubscriber());
@@ -52,10 +56,7 @@ namespace Wun.GatewayApi.Service
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.UseCors(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod());
+            app.UseCors("testPolicy");
             app.UseMvc();
             app.UseWebSockets();
             app.UseSignalR();
