@@ -1,0 +1,41 @@
+Guidelines:
+===========
+
+Solutions:
+----------
+
+BackEnd.sln - everything before the Gateway API.
+
+Namespaces:
+-----------
+
+Wun.[Area].
+e.g. Wun.BackEnd
+     Wun.FrontEnd
+
+
+Interface:
+==========
+
+Message format: JSON
+example:
+
+{
+	"screen-name": "someuser",
+	"at": "2012-03-19T07:22Z",
+	"text": "this is a tweet"  
+}
+
+Resources:
+==========
+
+Redis cluster: 
+
+Cache key space:
+----------------
+
+wun/
+
+Channels:
+
+wun/fast-path
