@@ -35,6 +35,7 @@
     <ProjectReference Include="..\SubscribeAndForwardService\SubscribeAndForwardService.csproj" />
     <ProjectReference Include="..\TweetCacheService\TweetCacheService.csproj" />
     <ProjectReference Include="..\TweetFeedHandler\TweetFeedHandlerService.csproj" />
+    <ProjectReference Include="..\TweetStoreService\TweetStoreService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
