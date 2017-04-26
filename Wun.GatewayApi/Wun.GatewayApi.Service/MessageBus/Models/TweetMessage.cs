@@ -6,6 +6,6 @@ namespace Wun.GatewayApi.Service.MessageBus.Models
     {
         public string DisplayName { get; set; }
         public string Message { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime Created { get; set; }
     }
 }
