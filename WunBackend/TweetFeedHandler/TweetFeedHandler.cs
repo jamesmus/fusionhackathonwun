@@ -35,7 +35,7 @@ namespace Wun.Backend.TweetFeedHandler
 		/// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service instance.</param>
 		protected override async Task RunAsync(CancellationToken cancellationToken)
 		{
-			TweetPublisher publisher = new TweetPublisher("");
+			TweetPublisher publisher = new TweetPublisher("messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False");
 			TwitterClient client = new TwitterClient();
 			client.ConsumerKey = "THxIAtcutrZVGoIVOVOinhLLk";
 			client.ConsumerSecret = "gvc5ZdCFX0zOVuJEbu7n4FFospswbHVwqnNoHXms1lxcW8Ikng";
