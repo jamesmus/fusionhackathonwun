@@ -30,7 +30,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TweetFeedHandler\TweetFeedHandler.csproj" />
+    <ProjectReference Include="..\TweetFeedHandler\TweetFeedHandlerService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>

@@ -6,17 +6,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using StackExchange.Redis;
-using System.Re
 
 namespace Wun.Backend.TweetFeedHandler
 {
 	/// <summary>
 	/// An instance of this class is created for each service instance by the Service Fabric runtime.
 	/// </summary>
-	internal sealed class TweetFeedHandler : StatelessService
+	internal sealed class TweetFeedHandlerService : StatelessService
 	{
-		public TweetFeedHandler(StatelessServiceContext context)
+		public TweetFeedHandlerService(StatelessServiceContext context)
 				: base(context)
 		{ }
 

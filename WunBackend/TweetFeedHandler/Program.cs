@@ -4,8 +4,10 @@ using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Runtime;
+using Microsoft.ServiceFabric.Services;
+using TweetFeedHandler;
 
-namespace TweetFeedHandler
+namespace Wun.Backend.TweetFeedHandler
 {
 	internal static class Program
 	{
@@ -21,10 +23,10 @@ namespace TweetFeedHandler
 				// When Service Fabric creates an instance of this service type,
 				// an instance of the class is created in this host process.
 
-				ServiceRuntime.RegisterServiceAsync("TweetFeedHandlerType",
-						context => new TweetFeedHandler(context)).GetAwaiter().GetResult();
+				ServiceRuntime.RegisterServiceAsync("TweetFeedHandlerServiceType",
+						context => new TweetFeedHandlerService(context)).GetAwaiter().GetResult();
 
-				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(TweetFeedHandler).Name);
+				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(TweetFeedHandlerService).Name);
 
 				// Prevents this host process from terminating so services keep running.
 				Thread.Sleep(Timeout.Infinite);

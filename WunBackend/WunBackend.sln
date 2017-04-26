@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "WunBackend", "WunBackend\WunBackend.sfproj", "{1DA7FC31-8384-4802-B911-5B39D372227D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedHandler", "TweetFeedHandler\TweetFeedHandler.csproj", "{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedHandlerService", "TweetFeedHandler\TweetFeedHandlerService.csproj", "{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedLibrary", "TweetFeedLibrary\TweetFeedLibrary.csproj", "{CDDE2C2F-9CD0-4E7E-8DD7-365195F2CB44}"
 EndProject
