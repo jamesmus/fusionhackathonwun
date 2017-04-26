@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +7,6 @@ using Newtonsoft.Json;
 using StackExchange.Redis;
 using Wun.GatewayApi.Service.ContractResolvers;
 using IMessageBus = Wun.GatewayApi.Service.MessageBus.IMessageBus;
-using ISubscriber = Microsoft.AspNetCore.SignalR.Messaging.ISubscriber;
 
 namespace Wun.GatewayApi.Service
 {
@@ -34,12 +29,18 @@ namespace Wun.GatewayApi.Service
         {
             // Add framework services.
             services.AddMvc();
-            services.AddCors(options => options.AddPolicy("testPolicy", builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod()));
 
-            services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
+	        var settings = new JsonSerializerSettings
+	        {
+		        ContractResolver = new SignalRContractResolver()
+	        };
+
+	        var serializer = JsonSerializer.Create(settings);
+	        services.Add(new ServiceDescriptor(typeof(JsonSerializer),
+		        provider => serializer,
+		        ServiceLifetime.Transient));
+
+			services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
             services.AddSingleton(provider => provider.GetService<IConnectionMultiplexer>().GetSubscriber());
             services.AddSingleton<IMessageBus, MessageBus.MessageBus>();
 
@@ -56,7 +57,10 @@ namespace Wun.GatewayApi.Service
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.UseCors("testPolicy");
+            app.UseCors(builder =>
+            {
+	            builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+            });
             app.UseMvc();
             app.UseWebSockets();
             app.UseSignalR();

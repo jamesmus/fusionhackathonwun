@@ -26,7 +26,7 @@ namespace Wun.GatewayApi.Service.Controllers
             {
                 Created = DateTime.UtcNow,
                 DisplayName = "DonaldTrump",
-                Message = "Hey from the test tweet"
+                Content = "Hey from the test tweet"
             });
         }
     }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import Tweet from '../../models/tweet.model';
 import TweetHub from '../../hubs/tweet.hub';
 
@@ -14,9 +14,11 @@ export default class DashboardComponent {
 		created: '4/26/2017'
 	};
 
-	constructor(private tweetHub: TweetHub) {
+	constructor(private tweetHub: TweetHub, private zone: NgZone) {
 		this.tweetHub.newTweet.subscribe((tweet) => {
-			this.tweet = tweet;
+			this.zone.run(() => {
+				this.tweet = tweet;
+			});
 		});
 	}
 }

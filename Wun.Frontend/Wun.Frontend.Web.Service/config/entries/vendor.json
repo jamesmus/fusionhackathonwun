@@ -6,6 +6,8 @@
   "@angular/platform-browser-dynamic",
   "@angular/material",
   "ng2-dragula",
+  "expose-loader?jQuery!jquery",
+  "signalr/jquery.signalR.js",
 
   "@angular/material/prebuilt-themes/purple-green.css"
 ]
