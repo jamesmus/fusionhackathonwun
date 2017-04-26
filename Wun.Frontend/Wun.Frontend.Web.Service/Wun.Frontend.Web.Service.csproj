@@ -18,5 +18,7 @@
     <PackageReference Include="Microsoft.ServiceFabric.Data" Version="2.5.216" />
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="2.5.216" />
   </ItemGroup>
-
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
 </Project>

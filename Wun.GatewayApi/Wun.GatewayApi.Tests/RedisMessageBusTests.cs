@@ -28,7 +28,7 @@ namespace Wun.GatewayApi.Tests
             redisSubscriberMock.Publish(subscriptionName, JsonConvert.SerializeObject(new TweetMessage
             {
                 DisplayName = "donaldTrump",
-                Message = "Grab her by the *****",
+                Content = "Grab her by the *****",
                 Created = DateTime.UtcNow
             }));
 
@@ -45,7 +45,7 @@ namespace Wun.GatewayApi.Tests
             ISubscriber redisSubscriberMock = new RedisSubscriberStub();
             IMessageBus messageBus = new MessageBus(redisSubscriberMock);
             await messageBus.SubscribeAsync<TweetMessage>(subscriptionName, messageCommandMock);
-            redisSubscriberMock.Publish(subscriptionName, "{\r\n\t\"DisplayName\": \"donaldTrump\",\r\n\t\"Message\": \"test\",\r\n\t\"Created\": \"2017-04-26T10:00:00Z\"\r\n}");
+            redisSubscriberMock.Publish(subscriptionName, "{\r\n\t\"DisplayName\": \"donaldTrump\",\r\n\t\"Content\": \"test\",\r\n\t\"Created\": \"2017-04-26T10:00:00Z\"\r\n}");
 
             //When
             //Then

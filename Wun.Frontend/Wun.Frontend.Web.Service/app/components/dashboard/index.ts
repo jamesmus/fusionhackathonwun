@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Tweet from '../../models/tweet.model';
+import TweetHub from '../../hubs/tweet.hub';
 
 @Component({
 	selector: 'dashboard',
@@ -6,4 +8,15 @@ import { Component } from '@angular/core';
 })
 
 export default class DashboardComponent {
+	tweet: Tweet = <Tweet>{
+		displayName: 'Donald Trump',
+		content: 'Some stupid tweet from DT',
+		created: '4/26/2017'
+	};
+
+	constructor(private tweetHub: TweetHub) {
+		this.tweetHub.newTweet.subscribe((tweet) => {
+			this.tweet = tweet;
+		});
+	}
 }
