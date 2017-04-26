@@ -6,7 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-
+using StackExchange.Redis;
+using System.Re
 
 namespace Wun.Backend.TweetFeedHandler
 {
@@ -34,30 +35,20 @@ namespace Wun.Backend.TweetFeedHandler
 		/// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service instance.</param>
 		protected override async Task RunAsync(CancellationToken cancellationToken)
 		{
-			// TODO: Replace the following sample code with your own logic 
-			//       or remove this RunAsync override if it's not needed in your service.
-
-			long iterations = 0;
+			TweetPublisher publisher = new TweetPublisher("");
 			TwitterClient client = new TwitterClient();
 			client.ConsumerKey = "THxIAtcutrZVGoIVOVOinhLLk";
 			client.ConsumerSecret = "gvc5ZdCFX0zOVuJEbu7n4FFospswbHVwqnNoHXms1lxcW8Ikng";
 			client.Username ="dt07715098";
 			client.Password = "mbdt2017";
-			var subscription= (await client.GetTweetStreamAsync()).Subscribe();
-
-			while (true)
+			using (var subscription = (await client.GetTweetStreamAsync()).Subscribe(publisher.PublishTweet))
 			{
-				cancellationToken.ThrowIfCancellationRequested();
-
-				//ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
-
-				
-				
-
-
-				await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+				while (true)
+				{
+					cancellationToken.ThrowIfCancellationRequested();
+					await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+				}
 			}
-			subscription.Dispose();
 		}
 	}
 }

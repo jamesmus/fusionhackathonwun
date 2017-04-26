@@ -54,7 +54,7 @@ namespace Wun.Backend.TweetFeedHandler
             return tokens.Streaming
                 .FilterAsObservable(track => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,y,x")
                 .OfType<StatusMessage>()
-                .Select(sm => new Tweet(sm.Status.User.ScreenName, sm.Status.Text));
+                .Select(sm => new Tweet(sm.Status.User.ScreenName, sm.Status.Text,sm.Timestamp.DateTime));
         }
 
         private (string action, string method, Dictionary<string, string> parameters) GetFormSubmission(
