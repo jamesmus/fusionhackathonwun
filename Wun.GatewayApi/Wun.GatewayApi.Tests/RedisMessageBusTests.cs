@@ -28,7 +28,7 @@ namespace Wun.GatewayApi.Tests
             {
                 DisplayName = "donaldTrump",
                 Message = "Grab her by the *****",
-                DateTime = DateTime.UtcNow
+                Created = DateTime.UtcNow
             }));
 
             //Then
@@ -44,7 +44,7 @@ namespace Wun.GatewayApi.Tests
             ISubscriber redisSubscriberMock = new RedisSubscriberStub();
             IMessageBus messageBus = new MessageBus(redisSubscriberMock);
             messageBus.Subscribe<TweetMessage>(subscriptionName, messageCommandMock);
-            redisSubscriberMock.Publish(subscriptionName, "{\r\n\t\"DisplayName\": \"donaldTrump\",\r\n\t\"Message\": \"test\",\r\n\t\"Datetime\": \"2017-04-26T10:00:00Z\"\r\n}");
+            redisSubscriberMock.Publish(subscriptionName, "{\r\n\t\"DisplayName\": \"donaldTrump\",\r\n\t\"Message\": \"test\",\r\n\t\"Created\": \"2017-04-26T10:00:00Z\"\r\n}");
 
             //When
             //Then

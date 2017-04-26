@@ -24,7 +24,7 @@ namespace Wun.GatewayApi.Tests.Stubs
             var message = tweetMessage as TweetMessage;
             ReadDisplayName = message.DisplayName;
             ReadMessage = message.Message;
-            ReadDatetime = message.DateTime;
+            ReadDatetime = message.Created;
         }
     }
 }
