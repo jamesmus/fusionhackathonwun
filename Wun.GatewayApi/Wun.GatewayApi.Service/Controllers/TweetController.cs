@@ -14,7 +14,7 @@ namespace Wun.GatewayApi.Service.Controllers
         public TweetController(IConnectionManager connectionManager, IMessageBus messageBus)
         {
             _connectionManager = connectionManager;
-            messageBus.Subscribe<TweetMessage>(RealTimeTweetsSubscription,
+            messageBus.SubscribeAsync<TweetMessage>(RealTimeTweetsSubscription,
                 new PushTweetToTheUiCommand(_connectionManager.GetHubContext<RealTimeTweetsHub>()));
         }
     }

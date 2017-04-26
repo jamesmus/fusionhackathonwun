@@ -5,6 +5,6 @@ namespace Wun.GatewayApi.Service.MessageBus
 {
     public interface IMessageBus
     {
-        Task Subscribe<TTweetMessage>(string subscriptionName, IMessageCommand messageCommand);
+        Task SubscribeAsync<TTweetMessage>(string subscriptionName, IMessageCommand messageCommand);
     }
 }

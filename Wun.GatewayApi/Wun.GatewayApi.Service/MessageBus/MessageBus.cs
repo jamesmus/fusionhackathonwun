@@ -14,7 +14,7 @@ namespace Wun.GatewayApi.Service.MessageBus
             _redisSubscriber = redisSubscriber;
         }
 
-        public async Task Subscribe<TTweetMessage>(string subscriptionName, IMessageCommand messageCommand)
+        public async Task SubscribeAsync<TTweetMessage>(string subscriptionName, IMessageCommand messageCommand)
         {
             await _redisSubscriber.SubscribeAsync(subscriptionName, (channel, value) => HandleMessage<TTweetMessage>(value, messageCommand));
         }
