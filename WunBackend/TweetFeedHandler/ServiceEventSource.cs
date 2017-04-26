@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace TweetFeedHandler
 {
-	[EventSource(Name = "MyCompany-WunBackend-TweetFeedHandler")]
+	[EventSource(Name = "WunBackend-TweetFeedHandler")]
 	internal sealed class ServiceEventSource : EventSource
 	{
 		public static readonly ServiceEventSource Current = new ServiceEventSource();

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/WunBackend" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="TweetCacheService_InstanceCount" Value="-1" />
-    <Parameter Name="TweetCacheService_InstanceCount" Value="-1" />
-    <Parameter Name="DelayedTweetService_InstanceCount" Value="-1" />
-    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="-1" />
-    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="-1" />
+    <Parameter Name="TweetStoreService_InstanceCount" Value="-1" />
+    <Parameter Name="TweetPublisher_ConnectionString" Value="messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False" />
+    <Parameter Name="TweetStoreService_InstanceCount" Value="1" />
+    <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
+    <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
+    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />
   </Parameters>
 </Application>

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/WunBackend" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
+    <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="1" />
+    <Parameter Name="TweetPublisher_ConnectionString" Value="localhost" />
     <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
     <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
-    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />
     <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />
   </Parameters>
 </Application>

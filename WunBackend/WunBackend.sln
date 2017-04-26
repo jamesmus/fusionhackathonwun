@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "WunBackend", "WunBackend\WunBackend.sfproj", "{1DA7FC31-8384-4802-B911-5B39D372227D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedHandlerService", "TweetFeedHandler\TweetFeedHandlerService.csproj", "{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedLibrary", "TweetFeedLibrary\TweetFeedLibrary.csproj", "{CDDE2C2F-9CD0-4E7E-8DD7-365195F2CB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TweetFeedLibrary", "TweetFeedLibrary\TweetFeedLibrary.csproj", "{CDDE2C2F-9CD0-4E7E-8DD7-365195F2CB44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeAndForwardService", "SubscribeAndForwardService\SubscribeAndForwardService.csproj", "{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}"
 EndProject
@@ -26,6 +26,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1DA7FC31-8384-4802-B911-5B39D372227D}.Debug|Any CPU.Build.0 = Debug|x64
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Debug|x64.ActiveCfg = Debug|x64
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Debug|x64.Build.0 = Debug|x64
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Debug|x64.Deploy.0 = Debug|x64
@@ -34,6 +35,7 @@ Global
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Release|x64.Build.0 = Release|x64
 		{1DA7FC31-8384-4802-B911-5B39D372227D}.Release|x64.Deploy.0 = Release|x64
 		{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}.Debug|Any CPU.Build.0 = Debug|x64
 		{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}.Debug|x64.ActiveCfg = Debug|x64
 		{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}.Debug|x64.Build.0 = Debug|x64
 		{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}.Release|Any CPU.ActiveCfg = Release|x64
@@ -48,24 +50,28 @@ Global
 		{CDDE2C2F-9CD0-4E7E-8DD7-365195F2CB44}.Release|x64.ActiveCfg = Release|Any CPU
 		{CDDE2C2F-9CD0-4E7E-8DD7-365195F2CB44}.Release|x64.Build.0 = Release|Any CPU
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Debug|Any CPU.Build.0 = Debug|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Debug|x64.ActiveCfg = Debug|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Debug|x64.Build.0 = Debug|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|Any CPU.ActiveCfg = Release|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|x64.ActiveCfg = Release|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|x64.Build.0 = Release|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|Any CPU.Build.0 = Debug|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|x64.ActiveCfg = Debug|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|x64.Build.0 = Debug|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|Any CPU.ActiveCfg = Release|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.ActiveCfg = Release|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.Build.0 = Release|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|Any CPU.Build.0 = Debug|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|x64.ActiveCfg = Debug|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|x64.Build.0 = Debug|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|Any CPU.ActiveCfg = Release|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|x64.ActiveCfg = Release|x64
 		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|x64.Build.0 = Release|x64
 		{39BE4F76-961D-445A-9ECD-C8DCC5AB6477}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{39BE4F76-961D-445A-9ECD-C8DCC5AB6477}.Debug|Any CPU.Build.0 = Debug|x64
 		{39BE4F76-961D-445A-9ECD-C8DCC5AB6477}.Debug|x64.ActiveCfg = Debug|x64
 		{39BE4F76-961D-445A-9ECD-C8DCC5AB6477}.Debug|x64.Build.0 = Debug|x64
 		{39BE4F76-961D-445A-9ECD-C8DCC5AB6477}.Release|Any CPU.ActiveCfg = Release|x64
