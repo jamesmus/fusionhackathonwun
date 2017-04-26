@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace TweetFeedHandler
+
+namespace Wun.Backend.TweetFeedHandler
 {
 	/// <summary>
 	/// An instance of this class is created for each service instance by the Service Fabric runtime.
@@ -37,15 +38,26 @@ namespace TweetFeedHandler
 			//       or remove this RunAsync override if it's not needed in your service.
 
 			long iterations = 0;
+			TwitterClient client = new TwitterClient();
+			client.ConsumerKey = "THxIAtcutrZVGoIVOVOinhLLk";
+			client.ConsumerSecret = "gvc5ZdCFX0zOVuJEbu7n4FFospswbHVwqnNoHXms1lxcW8Ikng";
+			client.Username ="dt07715098";
+			client.Password = "mbdt2017";
+			var subscription= (await client.GetTweetStreamAsync()).Subscribe();
 
 			while (true)
 			{
 				cancellationToken.ThrowIfCancellationRequested();
 
-				ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
+				//ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
+
+				
+				
+
 
 				await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
 			}
+			subscription.Dispose();
 		}
 	}
 }

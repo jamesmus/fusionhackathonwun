@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using CoreTweet;
 using CoreTweet.Streaming;
 using HtmlAgilityPack;
+using System.Net.Http;
 
-namespace TwitterConsole
+namespace Wun.Backend.TweetFeedHandler
 {
     public class TwitterClient
     {
