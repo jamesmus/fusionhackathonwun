@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeAndForwardService"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayedTweetService", "DelayedTweetService\DelayedTweetService.csproj", "{E4333A36-52E9-4002-91E2-F3DE97491952}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetCacheService", "TweetCacheService\TweetCacheService.csproj", "{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,12 @@ Global
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|Any CPU.ActiveCfg = Release|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.ActiveCfg = Release|x64
 		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.Build.0 = Release|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|x64.ActiveCfg = Debug|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Debug|x64.Build.0 = Debug|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|Any CPU.ActiveCfg = Release|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|x64.ActiveCfg = Release|x64
+		{E2EA745D-337D-45DC-ADD3-6D85B41C9F5B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,6 +33,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DelayedTweetService\DelayedTweetService.csproj" />
     <ProjectReference Include="..\SubscribeAndForwardService\SubscribeAndForwardService.csproj" />
+    <ProjectReference Include="..\TweetCacheService\TweetCacheService.csproj" />
     <ProjectReference Include="..\TweetFeedHandler\TweetFeedHandlerService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
