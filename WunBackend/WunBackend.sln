@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFeedLibrary", "TweetFe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeAndForwardService", "SubscribeAndForwardService\SubscribeAndForwardService.csproj", "{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayedTweetService", "DelayedTweetService\DelayedTweetService.csproj", "{E4333A36-52E9-4002-91E2-F3DE97491952}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|Any CPU.ActiveCfg = Release|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|x64.ActiveCfg = Release|x64
 		{8ADB9EEC-4AB7-41D1-B6F6-60D4C0E5FE5A}.Release|x64.Build.0 = Release|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|x64.ActiveCfg = Debug|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Debug|x64.Build.0 = Debug|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|Any CPU.ActiveCfg = Release|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.ActiveCfg = Release|x64
+		{E4333A36-52E9-4002-91E2-F3DE97491952}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

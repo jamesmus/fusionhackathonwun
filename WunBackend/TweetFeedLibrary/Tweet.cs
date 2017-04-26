@@ -24,5 +24,10 @@ namespace Wun.Backend.TweetFeedHandler
 			return JsonConvert.SerializeObject(this, 
 				new JsonSerializerSettings { DateFormatHandling = DateFormatHandling.IsoDateFormat });
 		}
+
+		public static Tweet CreateTweet(String tweet)
+		{
+			return (Tweet)JsonConvert.DeserializeObject(tweet);
+		}
 	}
 }
