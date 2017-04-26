@@ -112,7 +112,15 @@ module.exports = {
 		extensions: ['.js', '.json', '.ts']
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity }),
+        new webpack.optimize.CommonsChunkPlugin({ 
+            name: ['app', 'vendor', 'polyfills'], 
+            minChunks: Infinity 
+        }),
+        new webpack.ProvidePlugin({ 
+            jQuery: 'jquery', 
+            $: 'jquery', 
+            jquery: 'jquery' 
+        }),
         extract
     ]
 };
