@@ -2,7 +2,8 @@
 	<span fxLayout="row" fxFlex>
 		<span fxFlex class="logo">WUN Tweets</span>
 
-		<button md-button (click)="addRTContainerClicked()">Add RT</button>
+		<button md-icon-button (click)="addUserContainerClicked()"><md-icon>account_box</md-icon></button>
+		<button md-icon-button (click)="addRTContainerClicked()"><md-icon>timer</md-icon></button>
 	</span>
 </md-toolbar>
-<dashboard [containers]="containers"></dashboard>
+<dashboard [containers]="containers" (removed)="removeContainer($event)"></dashboard>

@@ -2,7 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import Tweet from '../../models/tweet.model';
 import TweetHub from '../../hubs/tweet.hub';
 
-import { IContainer, RealtimeTweetsContainer } from '../../models/container.model';
+import { IContainer, RealtimeTweetsContainer, UserTweetsContainer } from '../../models/container.model';
 
 @Component({
 	selector: 'main',
@@ -13,8 +13,17 @@ import { IContainer, RealtimeTweetsContainer } from '../../models/container.mode
 export default class MainComponent{
 	containers: Array<IContainer> = [];
 
-	public addRTContainerClicked() {
+	addRTContainerClicked() {
 		const container = new RealtimeTweetsContainer(); 
 		this.containers.push(container);
+	}
+
+	addUserContainerClicked() {
+		const container = new UserTweetsContainer(); 
+		this.containers.push(container);
+	}
+
+	removeContainer(container){
+		this.containers = this.containers.filter(item => item != container);
 	}
 }
