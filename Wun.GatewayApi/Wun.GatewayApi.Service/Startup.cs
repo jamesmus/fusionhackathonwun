@@ -7,6 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using StackExchange.Redis;
+using Wun.GatewayApi.Service.ContractResolvers;
+using IMessageBus = Wun.GatewayApi.Service.MessageBus.IMessageBus;
+using ISubscriber = Microsoft.AspNetCore.SignalR.Messaging.ISubscriber;
 
 namespace Wun.GatewayApi.Service
 {
@@ -29,6 +34,17 @@ namespace Wun.GatewayApi.Service
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
+            services.AddSingleton(provider => provider.GetService<IConnectionMultiplexer>().GetSubscriber());
+            services.AddSingleton<IMessageBus, MessageBus.MessageBus>();
+
+            services.AddSignalR(options =>
+            {
+                options.Hubs.EnableDetailedErrors = true;
+                options.EnableJSONP = true;
+                options.Hubs.EnableJavaScriptProxies = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,8 +52,13 @@ namespace Wun.GatewayApi.Service
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
             app.UseMvc();
+            app.UseWebSockets();
+            app.UseSignalR();
         }
     }
 }
