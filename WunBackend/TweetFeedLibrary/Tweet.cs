@@ -5,11 +5,11 @@ namespace Wun.Backend.TweetFeedHandler
 {
 	public class Tweet
 	{
-		[JsonProperty("screen-name")]
+		[JsonProperty("displayName")]
 		public string ScreenName { get; }
-		[JsonProperty("at")]
+		[JsonProperty("created")]
 		public DateTime Timestamp { get; }
-		[JsonProperty("text")]
+		[JsonProperty("content")]
 		public string Text { get; }
 		
 		public Tweet(string screenName, string text, DateTime timestamp)
