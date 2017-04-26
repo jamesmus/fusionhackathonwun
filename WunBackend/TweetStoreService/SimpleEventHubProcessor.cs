@@ -5,7 +5,6 @@ using Microsoft.Azure.EventHubs;
 using Microsoft.Azure.EventHubs.Processor;
 using System.Threading.Tasks;
 using Wun.Backend.TweetFeedHandler;
-using StackExchange.Redis;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,13 +12,10 @@ namespace TweetStoreService
 {
 	public class SimpleEventProcessor : IEventProcessor
 	{
-		String redisConnectionString = "";
-		String redisChannelName="";
-		ConnectionMultiplexer redisConnection;
-
+		
 		public SimpleEventProcessor()
 		{
-			redisConnection = ConnectionMultiplexer.Connect(redisConnectionString);
+			
 		}
 
 		public Task CloseAsync(PartitionContext context, CloseReason reason)
