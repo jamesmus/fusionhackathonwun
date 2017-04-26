@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR.Infrastructure;
 using Microsoft.Extensions.Options;
 using Wun.GatewayApi.Service.Configuration;
+using Wun.GatewayApi.Service.Hubs;
 using Wun.GatewayApi.Service.MessageBus;
 using Wun.GatewayApi.Service.MessageBus.MessageCommands;
 using Wun.GatewayApi.Service.MessageBus.Models;
