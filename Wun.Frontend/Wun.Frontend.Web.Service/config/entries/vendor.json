@@ -5,7 +5,7 @@
   "@angular/http",
   "@angular/platform-browser-dynamic",
   "@angular/material",
-  "ng2-dragula",
+  "@angular/flex-layout",
   "expose-loader?jQuery!jquery",
   "signalr/jquery.signalR.js",
 

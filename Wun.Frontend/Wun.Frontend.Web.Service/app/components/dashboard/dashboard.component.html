@@ -1,1 +1,10 @@
-<tweet [tweet]="tweet"></tweet>
+<div fxLayout="row" fxLayoutWrap >
+	<container *ngFor="let container of containers" fxFlex="30">
+		<div toolbar-body>
+			<span >Real-time tweets</span>
+		</div>
+		<div [ngSwitch]="container.type" container-body>
+			<tweet-list *ngSwitchCase="'realtime-tweets'"></tweet-list>
+		</div>
+	</container>
+</div>

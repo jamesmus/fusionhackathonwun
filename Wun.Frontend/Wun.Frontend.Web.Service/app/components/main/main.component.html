@@ -1,2 +1,8 @@
-<toolbar></toolbar>
-<dashboard></dashboard>
+<md-toolbar>
+	<span fxLayout="row" fxFlex>
+		<span fxFlex class="logo">WUN Tweets</span>
+
+		<button md-button (click)="addRTContainerClicked()">Add RT</button>
+	</span>
+</md-toolbar>
+<dashboard [containers]="containers"></dashboard>

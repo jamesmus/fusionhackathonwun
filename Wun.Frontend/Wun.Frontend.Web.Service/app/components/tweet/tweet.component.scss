@@ -1,4 +1,19 @@
-﻿.tweet-card {
-	width: 400px;
-	margin: 20px;
+﻿.tweet {
+	h2 {
+		font-size: 18px;
+
+		.date {
+			font-size: 11px;
+			color: #ddd;
+
+			&:before {
+				vertical-align: middle;
+				content: "\00b7";
+			}
+		}
+	}
+
+	.content{
+		color: #ebe8e5;
+	}
 }
