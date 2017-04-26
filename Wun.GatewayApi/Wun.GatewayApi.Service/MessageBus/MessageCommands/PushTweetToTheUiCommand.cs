@@ -8,7 +8,7 @@ namespace Wun.GatewayApi.Service.MessageBus.MessageCommands
 
         public PushTweetToTheUiCommand(IHubContext hubContext)
         {
-            this._hubContext = hubContext;
+            _hubContext = hubContext;
         }
 
         public void Execute<TTweetMessage>(TTweetMessage tweetMessage)
