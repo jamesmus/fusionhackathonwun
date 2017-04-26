@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -14,14 +15,14 @@ namespace Wun.GatewayApi.Tests
     public class RedisMessageBusTests
     {
         [Test]
-        public void GivenMessageBusAndSubscriptionToRedisQueue_WhenNewTweetIsPublished_ShouldExecuteTheGivenActionForThatMessage()
+        public async Task GivenMessageBusAndSubscriptionToRedisQueue_WhenNewTweetIsPublished_ShouldExecuteTheGivenActionForThatMessage()
         {
             //Given
             string subscriptionName = "real-time-tweets";
             Mock<IMessageCommand> messageCommandMock = new Mock<IMessageCommand>();
             ISubscriber redisSubscriberMock = new RedisSubscriberStub();
             IMessageBus messageBus = new MessageBus(redisSubscriberMock);
-            messageBus.Subscribe<TweetMessage>(subscriptionName, messageCommandMock.Object);
+            await messageBus.SubscribeAsync<TweetMessage>(subscriptionName, messageCommandMock.Object);
 
             //When
             redisSubscriberMock.Publish(subscriptionName, JsonConvert.SerializeObject(new TweetMessage
@@ -36,14 +37,14 @@ namespace Wun.GatewayApi.Tests
         }
 
         [Test]
-        public void GivenMessageHasBeenPublished_WhenPickingUpTheMessage_ItContainsProperFields()
+        public async Task GivenMessageHasBeenPublished_WhenPickingUpTheMessage_ItContainsProperFields()
         {
             //Given
             string subscriptionName = "real-time-tweets";
             TestCommandStub messageCommandMock = new TestCommandStub();
             ISubscriber redisSubscriberMock = new RedisSubscriberStub();
             IMessageBus messageBus = new MessageBus(redisSubscriberMock);
-            messageBus.Subscribe<TweetMessage>(subscriptionName, messageCommandMock);
+            await messageBus.SubscribeAsync<TweetMessage>(subscriptionName, messageCommandMock);
             redisSubscriberMock.Publish(subscriptionName, "{\r\n\t\"DisplayName\": \"donaldTrump\",\r\n\t\"Message\": \"test\",\r\n\t\"Created\": \"2017-04-26T10:00:00Z\"\r\n}");
 
             //When
