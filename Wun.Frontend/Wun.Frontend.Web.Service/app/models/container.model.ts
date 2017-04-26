@@ -1,11 +1,17 @@
 export interface IContainer {
 	type: string;
+	deleted: boolean;
 };
 
-export class RealtimeTweetsContainer implements IContainer {
+class Container implements IContainer {
+	type: string = '';
+	deleted: boolean = false;
+}
+
+export class RealtimeTweetsContainer extends Container {
 	type: string = 'realtime-tweets';
 }
 
-export class UserTweetsContainer implements IContainer {
+export class UserTweetsContainer extends Container {
 	type: string = 'user-tweets';
 }
