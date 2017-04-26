@@ -1,0 +1,11 @@
+[
+  "@angular/core",
+  "@angular/platform-browser",
+  "@angular/router",
+  "@angular/http",
+  "@angular/platform-browser-dynamic",
+  "@angular/material",
+  "ng2-dragula",
+
+  "@angular/material/prebuilt-themes/purple-green.css"
+]
