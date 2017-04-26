@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutWrap >
+	<container *ngFor="let container of containers" fxFlex="30" [ngSwitch]="container.type" >
+		<div fxFlex toolbar-body>
+			<span fxLayout="row" fxFlex> 
+				<span fxFlex class="logo">
+					<span *ngSwitchCase="'realtime-tweets'">Real-time tweets</span>
+					<span *ngSwitchCase="'user-tweets'">User tweets</span>
+				</span>
+				<button md-icon-button (click)="removeContainer(container)"><md-icon>close</md-icon></button>
+			</span>
+		</div>
+		<div container-body>
+			<tweet-list *ngSwitchCase="'realtime-tweets'"></tweet-list>
+			<div *ngSwitchCase="'user-tweets'">Here is going to be user tweet widget</div>
+		</div>
+	</container>
+</div>

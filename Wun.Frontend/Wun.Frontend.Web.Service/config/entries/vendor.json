@@ -1,0 +1,13 @@
+[
+  "@angular/core",
+  "@angular/platform-browser",
+  "@angular/router",
+  "@angular/http",
+  "@angular/platform-browser-dynamic",
+  "@angular/material",
+  "@angular/flex-layout",
+  "expose-loader?jQuery!jquery",
+  "signalr/jquery.signalR.js",
+
+  "@angular/material/prebuilt-themes/purple-green.css"
+]

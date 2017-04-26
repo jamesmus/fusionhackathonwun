@@ -1,0 +1,7 @@
+﻿<md-list-item class="tweet" [@contentUpdated]="tweet">
+	<h2 md-line>{{tweet.displayName}} <span class="date"> {{tweet.created | date: 'short'}}</span> </h2>
+	<p md-line>
+		 <span class="content">{{tweet.content}}</span>
+	</p>
+</md-list-item>
+<md-divider></md-divider>
