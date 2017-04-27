@@ -7,7 +7,7 @@
     <ProjectGuid>{E4333A36-52E9-4002-91E2-F3DE97491952}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DelayedTweetService</RootNamespace>
+    <RootNamespace>Wun.Backend.DelayedTweetService</RootNamespace>
     <AssemblyName>DelayedTweetService</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -110,11 +110,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DelayedTweetService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
-    <Compile Include="SimpleEventHubProcessor.cs" />
+    <Compile Include="DelayedTweetProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PackageRoot\Config\Settings.xml" />
@@ -123,9 +124,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TweetFeedLibrary\TweetFeedLibrary.csproj">
-      <Project>{cdde2c2f-9cd0-4e7e-8dd7-365195f2cb44}</Project>
-      <Name>TweetFeedLibrary</Name>
+    <ProjectReference Include="..\TweetCore\TweetCore.csproj">
+      <Project>{3E3E917A-5F00-4A89-B358-7D687BDE39E7}</Project>
+      <Name>TweetCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TweetModel\TweetModel.csproj">
+      <Project>{0e9948c7-a4fa-48d1-8a0c-4c2eca41b919}</Project>
+      <Name>TweetModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

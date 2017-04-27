@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using CoreTweet;
 using CoreTweet.Streaming;
 using HtmlAgilityPack;
-using System.Net.Http;
+using Wun.Backend.TweetModel;
 
 namespace Wun.Backend.TweetFeedHandler
 {
@@ -50,7 +50,7 @@ namespace Wun.Backend.TweetFeedHandler
             }
             HtmlNode oauthPinElement = htmlDocument.GetElementbyId("oauth_pin");
             string pin = oauthPinElement.SelectSingleNode("//code").InnerText;
-            Tokens tokens = await OAuth.GetTokensAsync(session, pin);
+            Tokens tokens = await session.GetTokensAsync(pin);
             return tokens.Streaming
                 .FilterAsObservable(track => "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,y,x")
                 .OfType<StatusMessage>()

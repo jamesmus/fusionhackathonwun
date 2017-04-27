@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.Azure.EventHubs;
 using Microsoft.Azure.EventHubs.Processor;
 using System.Threading.Tasks;
-using Wun.Backend.TweetFeedHandler;
+using Wun.Backend.TweetModel;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -12,10 +12,10 @@ namespace TweetStoreService
 {
 	public class SimpleEventProcessor : IEventProcessor
 	{
-		
+
 		public SimpleEventProcessor()
 		{
-			
+
 		}
 
 		public Task CloseAsync(PartitionContext context, CloseReason reason)
@@ -38,7 +38,7 @@ namespace TweetStoreService
 			foreach (var eventData in messages)
 			{
 				string _tweet= Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
-				Tweet tweet = Tweet.CreateTweet(_tweet);
+				Tweet tweet = Tweet.Create(_tweet);
 				StoreTweet(tweet);
 			}
 			return context.CheckpointAsync();
@@ -56,7 +56,7 @@ namespace TweetStoreService
 				builder.Password = "your_password";
 				builder.InitialCatalog = "your_database";
 
-				SqlConnection connection = new SqlConnection(builder.ConnectionString);				
+				SqlConnection connection = new SqlConnection(builder.ConnectionString);
 				connection.Open();
 				StringBuilder sql = new StringBuilder("insert into tweet_store(username,timestamp,text) values('");
 				sql.Append(tweet.ScreenName);
@@ -65,10 +65,10 @@ namespace TweetStoreService
 				sql.Append(",'");
 				sql.Append(tweet.Text);
 				sql.Append("')");
-					
+
 				SqlCommand command = new SqlCommand(sql.ToString(), connection);
 				command.ExecuteNonQuery();
-				
+
 			}
 			catch (SqlException e)
 			{
