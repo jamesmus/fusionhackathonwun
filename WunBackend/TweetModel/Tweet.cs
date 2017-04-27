@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace Wun.Backend.TweetFeedHandler
+namespace Wun.Backend.TweetModel
 {
 	public class Tweet
 	{
@@ -11,7 +11,7 @@ namespace Wun.Backend.TweetFeedHandler
 		public DateTime Timestamp { get; }
 		[JsonProperty("content")]
 		public string Text { get; }
-		
+
 		public Tweet(string screenName, string text, DateTime timestamp)
 		{
 			ScreenName = screenName;
@@ -19,13 +19,13 @@ namespace Wun.Backend.TweetFeedHandler
 			Timestamp = timestamp;
 		}
 
-		public String SerializeJSON()
+		public override string ToString()
 		{
-			return JsonConvert.SerializeObject(this, 
+			return JsonConvert.SerializeObject(this,
 				new JsonSerializerSettings { DateFormatHandling = DateFormatHandling.IsoDateFormat });
 		}
 
-		public static Tweet CreateTweet(String tweet)
+		public static Tweet Create(String tweet)
 		{
 			return (Tweet)JsonConvert.DeserializeObject(tweet);
 		}

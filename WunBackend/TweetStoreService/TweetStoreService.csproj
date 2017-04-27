@@ -138,9 +138,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TweetFeedLibrary\TweetFeedLibrary.csproj">
-      <Project>{cdde2c2f-9cd0-4e7e-8dd7-365195f2cb44}</Project>
-      <Name>TweetFeedLibrary</Name>
+    <ProjectReference Include="..\TweetModel\TweetModel.csproj">
+      <Project>{0e9948c7-a4fa-48d1-8a0c-4c2eca41b919}</Project>
+      <Name>TweetModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

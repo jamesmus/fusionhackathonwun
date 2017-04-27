@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.3" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="TweetFeedHandlerService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="TweetPublisher_ConnectionString" DefaultValue="" />
+    <Parameter Name="DelayedTweetService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="DelayedTweetService_EventHub_EntityPath" DefaultValue="" />
+    <Parameter Name="DelayedTweetService_EventHub_ConnectionString" DefaultValue="" />
+    <Parameter Name="DelayedTweetService_EventHub_StorageConnectionString" DefaultValue="" />
+    <Parameter Name="DelayedTweetService_EventHub_StorageContainerName" DefaultValue="" />
     <Parameter Name="TweetStoreService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="TweetCacheService_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="DelayedTweetService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="SubscribeAndForwardService_InstanceCount" DefaultValue="-1" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
@@ -16,12 +20,34 @@
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="DelayedTweetServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ServiceManifestRef ServiceManifestName="DelayedTweetServicePkg" ServiceManifestVersion="1.0.1" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="EventHub">
+            <Parameter Name="EntityPath" Value="[DelayedTweetService_EventHub_EntityPath]" />
+            <Parameter Name="ConnectionString" Value="[DelayedTweetService_EventHub_ConnectionString]" />
+            <Parameter Name="StorageConnectionString" Value="[DelayedTweetService_EventHub_StorageConnectionString]" />
+            <Parameter Name="StorageContainerName" Value="[DelayedTweetService_EventHub_StorageContainerName]" />
+          </Section>
+          <Section Name="TweetPublisher">
+            <Parameter Name="ConnectionString" Value="[TweetPublisher_ConnectionString]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="TweetFeedHandlerServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ServiceManifestRef ServiceManifestName="TweetFeedHandlerServicePkg" ServiceManifestVersion="1.0.3" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="TweetPublisher">
+            <Parameter Name="ConnectionString" Value="[TweetPublisher_ConnectionString]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SubscribeAndForwardServicePkg" ServiceManifestVersion="1.0.0" />
@@ -39,6 +65,11 @@
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="TweetFeedHandlerService">
       <StatelessService ServiceTypeName="TweetFeedHandlerServiceType" InstanceCount="[TweetFeedHandlerService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="DelayedTweetService">
+      <StatelessService ServiceTypeName="DelayedTweetServiceType" InstanceCount="[DelayedTweetService_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
     </Service>
