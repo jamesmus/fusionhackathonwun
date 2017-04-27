@@ -6,6 +6,16 @@
 					<span *ngSwitchCase="'realtime-tweets'">Real-time tweets</span>
 					<span *ngSwitchCase="'user-tweets'">User tweets</span>
 				</span>
+				<span *ngSwitchCase="'realtime-tweets'">
+					<md-button-toggle-group name="mode" [(ngModel)]="container.mode">
+						<md-button-toggle value="live">
+							Live
+						</md-button-toggle>
+						<md-button-toggle value="center">
+							Delayed
+						</md-button-toggle>
+					</md-button-toggle-group>
+				</span>
 				<button md-icon-button (click)="removeContainer(container)"><md-icon>close</md-icon></button>
 			</span>
 		</div>

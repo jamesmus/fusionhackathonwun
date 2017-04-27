@@ -6,4 +6,4 @@
 		<button md-icon-button (click)="addRTContainerClicked()" mdTooltip="Add real-time tweets widget"><md-icon>timer</md-icon></button>
 	</span>
 </md-toolbar>
-<dashboard [containers]="containers" [columnSize]="50" (removed)="removeContainer($event)"></dashboard>
+<dashboard [containers]="containers" (removed)="removeContainer($event)"></dashboard>

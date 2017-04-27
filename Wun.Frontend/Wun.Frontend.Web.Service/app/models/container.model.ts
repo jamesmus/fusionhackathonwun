@@ -10,6 +10,7 @@ class Container implements IContainer {
 
 export class RealtimeTweetsContainer extends Container {
 	type: string = 'realtime-tweets';
+	mode: string = 'live';
 }
 
 export class UserTweetsContainer extends Container {

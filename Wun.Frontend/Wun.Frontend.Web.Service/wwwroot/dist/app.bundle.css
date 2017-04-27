@@ -2,3 +2,7 @@ body {
   margin: 0px;
 }
 
+body .mat-button-toggle-label-content {
+  line-height: 40px;
+}
+

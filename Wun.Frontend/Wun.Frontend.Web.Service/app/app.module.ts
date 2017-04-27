@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import components from './components';
 import services from './services';
@@ -16,6 +17,7 @@ const bootstrap = TARGET == 'web' ? components.web : components.desktop;
 		BrowserModule,
 		BrowserAnimationsModule,
 		MaterialModule,
+		FormsModule,
 		FlexLayoutModule
 	],
 	declarations:
