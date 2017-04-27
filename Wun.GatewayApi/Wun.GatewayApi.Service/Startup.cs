@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using StackExchange.Redis;
+using Wun.GatewayApi.Service.Configuration;
 using Wun.GatewayApi.Service.ContractResolvers;
 using IMessageBus = Wun.GatewayApi.Service.MessageBus.IMessageBus;
 
@@ -43,6 +44,7 @@ namespace Wun.GatewayApi.Service
 			services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
             services.AddSingleton(provider => provider.GetService<IConnectionMultiplexer>().GetSubscriber());
             services.AddSingleton<IMessageBus, MessageBus.MessageBus>();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddSignalR(options =>
             {

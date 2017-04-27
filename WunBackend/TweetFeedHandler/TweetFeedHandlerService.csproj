@@ -7,7 +7,7 @@
     <ProjectGuid>{8DEAB837-B637-4CE3-AC89-8F4F2183D43B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TweetFeedHandler</RootNamespace>
+    <RootNamespace>Wun.Backend.TweetFeedHandler</RootNamespace>
     <AssemblyName>TweetFeedHandler</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -74,6 +74,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Extensions, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Extensions.1.0.0.11\lib\net40\System.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Fabric, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\packages\Microsoft.ServiceFabric.5.5.216\lib\net45\System.Fabric.dll</HintPath>
       <Private>True</Private>
@@ -110,6 +113,9 @@
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
@@ -133,9 +139,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TweetCore\TweetCore.csproj">
+      <Project>{3e3e917a-5f00-4a89-b358-7d687bde39e7}</Project>
+      <Name>TweetCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TweetFeedLibrary\TweetFeedLibrary.csproj">
       <Project>{cdde2c2f-9cd0-4e7e-8dd7-365195f2cb44}</Project>
       <Name>TweetFeedLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TweetModel\TweetModel.csproj">
+      <Project>{0e9948c7-a4fa-48d1-8a0c-4c2eca41b919}</Project>
+      <Name>TweetModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
