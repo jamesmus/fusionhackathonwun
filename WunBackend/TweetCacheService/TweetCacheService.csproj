@@ -122,6 +122,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TweetCore\TweetCore.csproj">
+      <Project>{3e3e917a-5f00-4a89-b358-7d687bde39e7}</Project>
+      <Name>TweetCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TweetModel\TweetModel.csproj">
       <Project>{0e9948c7-a4fa-48d1-8a0c-4c2eca41b919}</Project>
       <Name>TweetModel</Name>

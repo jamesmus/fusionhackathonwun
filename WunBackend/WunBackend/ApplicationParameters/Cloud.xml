@@ -4,10 +4,10 @@
     <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="1" />
     <Parameter Name="TweetPublisher_ConnectionString" Value="messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False" />
     <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
-    <Parameter Name="DelayedTweetService_EventHub_EntityPath" Value="" />
-    <Parameter Name="DelayedTweetService_EventHub_ConnectionString" Value="" />
-    <Parameter Name="DelayedTweetService_EventHub_StorageConnectionString" Value="" />
-    <Parameter Name="DelayedTweetService_EventHub_StorageContainerName" Value="" />
+    <Parameter Name="EventHub_EntityPath" Value="" />
+    <Parameter Name="EventHub_ConnectionString" Value="" />
+    <Parameter Name="EventHub_StorageConnectionString" Value="" />
+    <Parameter Name="EventHub_StorageContainerName" Value="" />
     <Parameter Name="TweetStoreService_InstanceCount" Value="1" />
     <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
     <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />

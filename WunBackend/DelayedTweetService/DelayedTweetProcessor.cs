@@ -39,10 +39,12 @@ namespace Wun.Backend.DelayedTweetService
             {
                 var tweetString = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
                 Tweet tweet = Tweet.Create(tweetString);
-                if(tweet.Timestamp>DateTime.Now.AddMinutes(-2))
+                TimeSpan delay = tweet.Timestamp - DateTime.UtcNow.AddMinutes(-2);
+                if (delay > TimeSpan.Zero)
                 {
-                    await _tweetPublisher.PublishTweetAsync(tweet);
+                    await Task.Delay(delay);
                 }
+                await _tweetPublisher.PublishTweetAsync(tweet);
             }
             await context.CheckpointAsync();
         }
