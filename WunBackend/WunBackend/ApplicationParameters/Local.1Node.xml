@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/WunBackend" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="1" />
+    <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="-1" />
     <Parameter Name="TweetCacheAndMessageBus_ConnectionString" Value="localhost" />
-    <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
+    <Parameter Name="DelayedTweetService_InstanceCount" Value="-1" />
     <Parameter Name="EventHub_EntityPath" Value="" />
     <Parameter Name="EventHub_ConnectionString" Value="" />
     <Parameter Name="EventHub_StorageConnectionString" Value="" />
     <Parameter Name="EventHub_StorageContainerName" Value="" />
-    <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
-    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />
+    <Parameter Name="TweetCacheService_InstanceCount" Value="-1" />
+    <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="-1" />
   </Parameters>
 </Application>

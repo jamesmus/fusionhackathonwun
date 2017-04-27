@@ -4,10 +4,10 @@
     <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="1" />
     <Parameter Name="TweetCacheAndMessageBus_ConnectionString" Value="messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False" />
     <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
-    <Parameter Name="EventHub_EntityPath" Value="" />
-    <Parameter Name="EventHub_ConnectionString" Value="" />
-    <Parameter Name="EventHub_StorageConnectionString" Value="" />
-    <Parameter Name="EventHub_StorageContainerName" Value="" />
+    <Parameter Name="EventHub_EntityPath" Value="Tweets" />
+    <Parameter Name="EventHub_ConnectionString" Value="Endpoint=sb://fusionhackathonwun.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=iK+EWHNsXgu46/nVAaR+x7lhKFL74+r5tRDLt9p2u4I=" />
+    <Parameter Name="EventHub_StorageConnectionString" Value="DefaultEndpointsProtocol=https;AccountName=fusionhackathondisks736;AccountKey=8BT0s6yFIexztDOURZGKYTyHoPVZVDbIwj6+NNvMv3aarkwlsJ/sVc7hmlsOWK2dk3/Cheh2XMyVROnEdbBewQ==;EndpointSuffix=core.windows.net" />
+    <Parameter Name="EventHub_StorageContainerName" Value="wuntweetseventhub" />
     <Parameter Name="TweetStoreService_InstanceCount" Value="1" />
     <Parameter Name="TweetCacheService_InstanceCount" Value="1" />
     <Parameter Name="SubscribeAndForwardService_InstanceCount" Value="1" />
