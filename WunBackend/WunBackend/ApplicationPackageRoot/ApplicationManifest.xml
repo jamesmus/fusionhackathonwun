@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.5" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.6" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="TweetCacheAndMessageBus_ConnectionString" DefaultValue="" />
     <Parameter Name="DelayedTweetService_InstanceCount" DefaultValue="-1" />
@@ -20,7 +20,7 @@
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="DelayedTweetServicePkg" ServiceManifestVersion="1.0.3" />
+    <ServiceManifestRef ServiceManifestName="DelayedTweetServicePkg" ServiceManifestVersion="1.0.4" />
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
