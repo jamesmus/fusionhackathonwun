@@ -2,7 +2,6 @@
 using System;
 using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Wun.GatewayApi.Service
 {
@@ -20,7 +19,7 @@ namespace Wun.GatewayApi.Service
                 // When Service Fabric creates an instance of this service type,
                 // an instance of the class is created in this host process.
 
-                ServiceRuntime.RegisterServiceAsync("ServiceType",
+                ServiceRuntime.RegisterServiceAsync("WunGatewayApi",
                     context => new Service(context)).GetAwaiter().GetResult();
 
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Service).Name);

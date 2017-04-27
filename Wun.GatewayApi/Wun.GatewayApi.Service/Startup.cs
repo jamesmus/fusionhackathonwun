@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Fabric;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,10 +14,11 @@ namespace Wun.GatewayApi.Service
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, StatelessServiceContext serviceContext)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
+                .AddServiceFabricConfiguration(serviceContext)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
@@ -41,7 +43,7 @@ namespace Wun.GatewayApi.Service
 		        provider => serializer,
 		        ServiceLifetime.Transient));
 
-			services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
+			services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(serviceProvider => ConnectionMultiplexer.Connect(Configuration.GetSection("GatewayApi")["RedisConnection"]));
             services.AddSingleton(provider => provider.GetService<IConnectionMultiplexer>().GetSubscriber());
             services.AddSingleton<IMessageBus, MessageBus.MessageBus>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
