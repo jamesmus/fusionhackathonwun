@@ -31,9 +31,9 @@ namespace Wun.Backend.TweetFeedHandler
             var client = new TwitterClient
             {
                 // Move along - there's nothing to see here...
-                ConsumerKey = "jxcmKQsW6F5WnewZEE6JuRs0Z",
-                ConsumerSecret = "hq4HxMQBWFh4kNcLJyWM0tfJvtZKvePIaelJGo47NdESDZMbMl",
-                Username = "dt07715099",
+                ConsumerKey = "eRn4BoNNwCsGmXo8d9avxH1yU",
+                ConsumerSecret = "qkn9Zhg1cBtXrWEU1u9hFI55mzzOS2ErxLWDd8qsyi1zF6Z478",
+                Username = "dt07715097",
                 Password = "mbdt2017"
             };
             using ((await client.GetTweetStreamAsync()).Subscribe(async t => await publisher.PublishTweetAsync(t)))
