@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Infrastructure;
 using Microsoft.Extensions.Options;
 using Wun.GatewayApi.Service.Configuration;
@@ -17,8 +18,11 @@ namespace Wun.GatewayApi.Service.Controllers
         public TweetController(IConnectionManager connectionManager, IMessageBus messageBus, IOptions<AppSettings> appSettings)
         {
             _connectionManager = connectionManager;
-            messageBus.SubscribeAsync<TweetMessage>(appSettings.Value.RealTimeTweetRedisChannel,
-                new PushTweetToTheUiCommand(_connectionManager.GetHubContext<RealTimeTweetsHub>()));
+            SubscribeToRedisChannels(messageBus,
+                new Tuple<string, Func<IHubContext>>(appSettings.Value.RealTimeTweetRedisChannel,
+                    () => _connectionManager.GetHubContext<RealTimeTweetsHub>()),
+                new Tuple<string, Func<IHubContext>>(appSettings.Value.DelayedTweetRedisChannel,
+                    () => _connectionManager.GetHubContext<DelayedTweetsHub>()));
         }
 
         [HttpPost("api/tweet/test")]
@@ -30,6 +34,16 @@ namespace Wun.GatewayApi.Service.Controllers
                 DisplayName = "DonaldTrump",
                 Content = "Hey from the test tweet"
             });
+        }
+
+        private void SubscribeToRedisChannels(IMessageBus messageBus, params Tuple<string, Func<IHubContext>>[] redisChannelsToHubContexts)
+        {
+            foreach (var redisChannelWithHubContext in redisChannelsToHubContexts)
+            {
+                var redisChannel = redisChannelWithHubContext.Item1;
+                var hubContext = redisChannelWithHubContext.Item2();
+                messageBus.SubscribeAsync<TweetMessage>(redisChannel, new PushTweetToTheUiCommand(hubContext));
+            }
         }
     }
 }
