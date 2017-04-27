@@ -6,8 +6,8 @@
     <Parameter Name="ConnectionString" Value="" />
   </Section>
 
-  <Section Name="TweetPublisher">
-    <Parameter Name="ConnectionString"/>
+  <Section Name="TweetCacheAndMessageBus">
+    <Parameter Name="ConnectionString" Value="" />
   </Section>
 
 </Settings>

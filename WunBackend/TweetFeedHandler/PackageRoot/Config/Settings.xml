@@ -4,7 +4,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
-  <Section Name="TweetPublisher">
+  <Section Name="TweetCacheAndMessageBus">
     <Parameter Name="ConnectionString" Value="localhost" />
   </Section>
 

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.3" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="TweetFeedHandlerService_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="TweetPublisher_ConnectionString" DefaultValue="" />
+    <Parameter Name="TweetCacheAndMessageBus_ConnectionString" DefaultValue="" />
     <Parameter Name="DelayedTweetService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="EventHub_EntityPath" DefaultValue="" />
     <Parameter Name="EventHub_ConnectionString" DefaultValue="" />
     <Parameter Name="EventHub_StorageConnectionString" DefaultValue="" />
     <Parameter Name="EventHub_StorageContainerName" DefaultValue="" />
+    <Parameter Name="TweetFeedHandlerService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="TweetStoreService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="TweetCacheService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="SubscribeAndForwardService_InstanceCount" DefaultValue="-1" />
@@ -30,8 +30,8 @@
             <Parameter Name="StorageConnectionString" Value="[EventHub_StorageConnectionString]" />
             <Parameter Name="StorageContainerName" Value="[EventHub_StorageContainerName]" />
           </Section>
-          <Section Name="TweetPublisher">
-            <Parameter Name="ConnectionString" Value="[TweetPublisher_ConnectionString]" />
+          <Section Name="TweetCacheAndMessageBus">
+            <Parameter Name="ConnectionString" Value="[TweetCacheAndMessageBus_ConnectionString]" />
           </Section>
         </Settings>
       </ConfigOverride>
@@ -42,8 +42,8 @@
     <ConfigOverrides>
       <ConfigOverride Name="Config">
         <Settings>
-          <Section Name="TweetPublisher">
-            <Parameter Name="ConnectionString" Value="[TweetPublisher_ConnectionString]" />
+          <Section Name="TweetCacheAndMessageBus">
+            <Parameter Name="ConnectionString" Value="[TweetCacheAndMessageBus_ConnectionString]" />
           </Section>
         </Settings>
       </ConfigOverride>
@@ -58,8 +58,8 @@
             <Parameter Name="EntityPath" Value="[EventHub_EntityPath]" />
             <Parameter Name="ConnectionString" Value="[EventHub_ConnectionString]" />
           </Section>
-          <Section Name="TweetPublisher">
-            <Parameter Name="ConnectionString" Value="[TweetPublisher_ConnectionString]" />
+          <Section Name="TweetCacheAndMessageBus">
+            <Parameter Name="ConnectionString" Value="[TweetCacheAndMessageBus_ConnectionString]" />
           </Section>
         </Settings>
       </ConfigOverride>

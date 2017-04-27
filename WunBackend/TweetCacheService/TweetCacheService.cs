@@ -31,7 +31,7 @@ namespace TweetCacheService
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             ConfigurationPackage configurationPackage = Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
-            string tweetSubscriberConnectionString = configurationPackage.Settings.Sections["TweetPublisher"].Parameters["ConnectionString"].Value;
+            string tweetSubscriberConnectionString = configurationPackage.Settings.Sections["TweetCacheAndMessageBus"].Parameters["ConnectionString"].Value;
             string tweetCacheConnectionString = tweetSubscriberConnectionString;
 
             using(var tweetCache = new TweetCache(tweetCacheConnectionString))

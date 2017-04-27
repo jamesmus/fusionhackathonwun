@@ -2,7 +2,7 @@
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/WunBackend" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="TweetFeedHandlerService_InstanceCount" Value="1" />
-    <Parameter Name="TweetPublisher_ConnectionString" Value="messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False" />
+    <Parameter Name="TweetCacheAndMessageBus_ConnectionString" Value="messagebus.redis.cache.windows.net:6380,password=EROkpTd2DK31qqoyEbtYjbMWmqw0hY0ZpKHPlIKpVcY=,ssl=True,abortConnect=False" />
     <Parameter Name="DelayedTweetService_InstanceCount" Value="1" />
     <Parameter Name="EventHub_EntityPath" Value="" />
     <Parameter Name="EventHub_ConnectionString" Value="" />

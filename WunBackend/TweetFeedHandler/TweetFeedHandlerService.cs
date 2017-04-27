@@ -25,7 +25,7 @@ namespace Wun.Backend.TweetFeedHandler
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             ConfigurationPackage configurationPackage = Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
-            string connectionString = configurationPackage.Settings.Sections["TweetPublisher"].Parameters["ConnectionString"].Value;
+            string connectionString = configurationPackage.Settings.Sections["TweetCacheAndMessageBus"].Parameters["ConnectionString"].Value;
 
             var publisher = new TweetPublisher(connectionString, _ => "wun/fast-path");
             var client = new TwitterClient

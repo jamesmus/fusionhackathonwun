@@ -29,7 +29,7 @@ namespace Wun.Backend.DelayedTweetService
             ConfigurationPackage configurationPackage = Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
             ConfigurationSection eventHubSection = configurationPackage.Settings.Sections["EventHub"];
 
-            string tweetPublisherConnectionString = configurationPackage.Settings.Sections["TweetPublisher"].Parameters["ConnectionString"].Value;
+            string tweetPublisherConnectionString = configurationPackage.Settings.Sections["TweetCacheAndMessageBus"].Parameters["ConnectionString"].Value;
 
             var eventProcessorHost = new EventProcessorHost(
                 eventHubSection.Parameters["EntityPath"].Value,

@@ -33,7 +33,7 @@ namespace SubscribeAndForwardService
             ConfigurationPackage configurationPackage = Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
             ConfigurationSection eventHubSection = configurationPackage.Settings.Sections["EventHub"];
 
-            string tweetSubscriberConnectionString = configurationPackage.Settings.Sections["TweetPublisher"].Parameters["ConnectionString"].Value;
+            string tweetSubscriberConnectionString = configurationPackage.Settings.Sections["TweetCacheAndMessageBus"].Parameters["ConnectionString"].Value;
 
             var connectionStringBuilder = new EventHubsConnectionStringBuilder(eventHubSection.Parameters["ConnectionString"].Value)
             {
