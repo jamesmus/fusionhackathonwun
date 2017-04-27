@@ -18,13 +18,13 @@ namespace Wun.Backend.TweetCore
 
         public async Task<Tweet> GetAsync(string screenName)
         {
-            string tweetString = await _redisDatabase.StringGetAsync(screenName);
+            string tweetString = await _redisDatabase.StringGetAsync($"wun/latest/{screenName}");
             return tweetString == null ? null : Tweet.Create(tweetString);
         }
 
         public async Task SetAsync(Tweet tweet)
         {
-            await _redisDatabase.StringSetAsync(tweet.ScreenName, tweet.ToString());
+            await _redisDatabase.StringSetAsync($"wun/latest/{tweet.ScreenName}", tweet.ToString());
         }
 
         public void Dispose()

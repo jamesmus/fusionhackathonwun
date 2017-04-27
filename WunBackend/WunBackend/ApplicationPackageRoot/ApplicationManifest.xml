@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.6" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WunBackendType" ApplicationTypeVersion="1.0.8" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="TweetCacheAndMessageBus_ConnectionString" DefaultValue="" />
     <Parameter Name="DelayedTweetService_InstanceCount" DefaultValue="-1" />
@@ -66,8 +66,16 @@
     </ConfigOverrides>
   </ServiceManifestImport>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="TweetCacheServicePkg" ServiceManifestVersion="1.0.1" />
-    <ConfigOverrides />
+    <ServiceManifestRef ServiceManifestName="TweetCacheServicePkg" ServiceManifestVersion="1.0.3" />
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="TweetCacheAndMessageBus">
+            <Parameter Name="ConnectionString" Value="[TweetCacheAndMessageBus_ConnectionString]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this
@@ -80,7 +88,7 @@
         <SingletonPartition />
       </StatelessService>
     </Service>
-    <Service Name="SubscribeAndForwardService">
+    <!--<Service Name="SubscribeAndForwardService">
       <StatelessService ServiceTypeName="SubscribeAndForwardServiceType" InstanceCount="[SubscribeAndForwardService_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
@@ -90,5 +98,10 @@
         <SingletonPartition />
       </StatelessService>
     </Service>
+    <Service Name="TweetCacheService">
+      <StatelessService ServiceTypeName="TweetCacheServiceType" InstanceCount="[TweetCacheService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>-->
   </DefaultServices>
 </ApplicationManifest>

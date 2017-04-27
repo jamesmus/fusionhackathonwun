@@ -40,8 +40,8 @@ namespace Wun.Backend.TweetFeedHandler
             }
             (string action, string method, Dictionary<string, string> parameters) =
                     GetFormSubmission("oauth_form", htmlDocument, oathFormFieldNames);
-            parameters["session[username_or_email]"] = "dt07715098";
-            parameters["session[password]"] = "mbdt2017";
+            parameters["session[username_or_email]"] = Username;
+            parameters["session[password]"] = Password;
             webResponse = await PostFormAsync(action, method, parameters, cookieContainer);
             htmlDocument = new HtmlDocument();
             using (var responseStream = webResponse.GetResponseStream())

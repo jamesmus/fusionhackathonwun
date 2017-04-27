@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Fabric;
-using System.Fabric.Description;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Azure.EventHubs;
-using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using StackExchange.Redis;
 using Wun.Backend.TweetCore;
-using Wun.Backend.TweetModel;
 
 namespace TweetCacheService
 {
