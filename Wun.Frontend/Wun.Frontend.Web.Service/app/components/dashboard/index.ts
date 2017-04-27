@@ -10,6 +10,8 @@ import { IContainer } from '../../models/container.model';
 export default class DashboardComponent {
 	@Input()
 	containers: Array<IContainer> = [];
+	@Input()
+	columnSize: number = 30;
 	@Output()
    public removed = new EventEmitter();
 

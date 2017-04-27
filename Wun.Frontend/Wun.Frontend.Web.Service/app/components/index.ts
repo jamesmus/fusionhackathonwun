@@ -1,4 +1,5 @@
-import MainComponent from './main';
+import WebMainComponent from './web';
+import DesktopMainComponent from './desktop';
 import ToolbarComponent from './toolbar';
 import DashboardComponent from './dashboard';
 import TweetComponent from './tweet';
@@ -7,12 +8,14 @@ import ContainerComponent from './container';
 
 export default {
 	declarations: [
-		MainComponent,
+		WebMainComponent,
+		DesktopMainComponent,
 		ToolbarComponent,
 		DashboardComponent,
 		TweetComponent,
 		TweetListComponent,
 		ContainerComponent
 	],
-	bootstrap: MainComponent
+	web: WebMainComponent,
+	desktop: DesktopMainComponent
 };

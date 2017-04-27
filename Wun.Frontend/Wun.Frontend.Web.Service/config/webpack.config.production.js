@@ -1,12 +1,15 @@
 ﻿const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+const commonDefinitions = require('./definitions/common');
+
+const customDefinitions = {
+    PRODUCTION: JSON.stringify(true) 
+};
+
+const definitions = Object.assign({}, commonDefinitions, customDefinitions);
 
 module.exports = webpackMerge(require('./webpack.config.common'), {
     plugins: [
-        new webpack.DefinePlugin({
-			PRODUCTION: JSON.stringify(true),
-			API: JSON.stringify("http://localhost:8933/"),
-			HUB: JSON.stringify("http://localhost:8933/")
-        })
+        new webpack.DefinePlugin(definitions)
     ]
 });

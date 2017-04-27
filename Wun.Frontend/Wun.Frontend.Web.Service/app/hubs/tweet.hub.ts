@@ -10,9 +10,7 @@ export default class TweetHub {
 	private hubName: string = 'realtimeTweetsHub';
 
 	private newTweetSubject = new Subject<Tweet>();
-	private timer;
-	private counter: Number = 1;
-	
+
 	private tweetHub: any;
 	
 	constructor() {

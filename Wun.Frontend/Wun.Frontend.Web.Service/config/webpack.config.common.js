@@ -5,7 +5,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const rootPath = path.resolve(__dirname, '..');
 const appPath = path.join(rootPath, 'app');
 const componentPath = path.join(appPath, 'components');
-const outputPath = path.join(rootPath, 'wwwroot/dist');
+
+
+const target = process.env.TARGET || 'web';
+const outputPath = path.join(rootPath, target == 'web' ? 'wwwroot/dist' : 'desktop/dist');
 
 const extract = new ExtractTextPlugin({
     filename: '[name].bundle.css',

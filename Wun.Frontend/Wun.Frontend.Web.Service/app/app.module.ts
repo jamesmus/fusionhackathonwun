@@ -8,6 +8,8 @@ import components from './components';
 import services from './services';
 import hubs from './hubs';
 
+const bootstrap = TARGET == 'web' ? components.web : components.desktop;
+
 @NgModule({
 	imports:
 	[
@@ -24,6 +26,6 @@ import hubs from './hubs';
 		...services,
 		...hubs
 	],
-	bootstrap: [components.bootstrap]
+	bootstrap: [bootstrap]
 })
 export default  class AppModule { }
